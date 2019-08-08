@@ -8,18 +8,35 @@ import {
 import { createStore } from 'redux';
 import { Provider } from "react-redux";
 
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import { PersistGate } from 'redux-persist/integration/react';
+
 import {reducer} from "../redux/reduce";
 import A from "../page/a";
 import B from "../page/b";
 
-var store = createStore(reducer);
+const persistConfig = {
+    key: 'userInfo',
+    storage,
+    blacklist:[]
+  }
+   
+const persistedReducer = persistReducer(persistConfig, reducer)
+
+//var store = createStore(reducer);
+
+let store = createStore(persistedReducer)
+let persistor = persistStore(store)
 
 ReactDom.render(
     <Provider store={store}>
-        <Router>
-            <Route exact path="/a" component = {A}/>
-            <Route exact path="/b" component = {B}/>
-        </Router>
+        <PersistGate loading={null} persistor={persistor}>
+            <Router>
+                <Route exact path="/a" component = {A}/>
+                <Route exact path="/b" component = {B}/>
+            </Router>
+        </PersistGate>
     </Provider>
     
 ,
