@@ -12,7 +12,7 @@ import {
 export default class A extends Component{
     render(){
         return <div>
-            <Link to={"/b"}>{this.props.name}</Link>
+            <Link to={"/b"}>{this.props.reducer.name}</Link>
         </div>
     }
     constructor(props){

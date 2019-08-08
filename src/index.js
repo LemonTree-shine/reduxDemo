@@ -3,28 +3,36 @@ import ReactDom from "react-dom";
 import {
     BrowserRouter as Router,
     Route,
+    Switch,
     Link
   } from 'react-router-dom';
-import { createStore } from 'redux';
+import { createStore,combineReducers } from 'redux';
 import { Provider } from "react-redux";
 
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { PersistGate } from 'redux-persist/integration/react';
 
-import {reducer} from "../redux/reduce";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+
+import {reducer,reducer2} from "../redux/reduce";
 import A from "../page/a";
 import B from "../page/b";
+import "../less/common.less";
 
 const persistConfig = {
     key: 'userInfo',
     storage,
     blacklist:[]
   }
-   
-const persistedReducer = persistReducer(persistConfig, reducer)
 
-//var store = createStore(reducer);
+let combineReduce = combineReducers({
+    reducer,
+    reducer2
+});
+   
+const persistedReducer = persistReducer(persistConfig, combineReduce)
 
 let store = createStore(persistedReducer)
 let persistor = persistStore(store)
