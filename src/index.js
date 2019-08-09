@@ -19,7 +19,7 @@ import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import {reducer,reducer2} from "../redux/reduce";
 import A from "../page/a";
 import B from "../page/b";
-import "../less/common.less";
+import "../less/common.scss";
 
 const persistConfig = {
     key: 'userInfo',
@@ -45,9 +45,7 @@ ReactDom.render(
                 <Route exact path="/b" component = {B}/>
             </Router>
         </PersistGate>
-    </Provider>
-    
-,
+    </Provider>,
     document.getElementById("contain"),
     () => {
         //回调

@@ -6,6 +6,6 @@ import { connect } from "react-redux";
 })
 export default class B extends Component{
     render(){
-        return <div>asdasdasdasdasdasdasdasd</div>
+        return <div className="test">hello world</div>
     }
 }

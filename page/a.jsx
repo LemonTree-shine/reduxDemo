@@ -4,31 +4,31 @@ import {
     BrowserRouter as Router,
     Route,
     Link
-  } from 'react-router-dom';
+} from 'react-router-dom';
 
-@connect((state)=>{
+@connect((state) => {
     return state
 })
-export default class A extends Component{
-    render(){
+export default class A extends Component {
+    render() {
         return <div>
             <Link to={"/b"}>{this.props.reducer.name}</Link>
         </div>
     }
-    constructor(props){
+    constructor(props) {
         super(props);
         console.log(props);
     }
-    componentDidMount(){
-        setTimeout(()=>{
+    componentDidMount() {
+        setTimeout(() => {
             this.props.dispatch({
-                type:"ADD",
-                data:{
-                    name:"我换了一个名字",
-                    age:"27"
+                type: "ADD",
+                data: {
+                    name: "我换了一个名字",
+                    age: "27"
                 }
             });
-        },2000)
+        }, 2000)
     }
 }
 

@@ -1,5 +1,6 @@
 var path = require("path");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
+const LessFunc = require('less-plugin-functions');
 
 module.exports = {
     devServer:{ //开发服务器配置
@@ -31,7 +32,20 @@ module.exports = {
             use:[
                 {loader:"style-loader"},
                 {loader:"css-loader"},
-                {loader:"less-loader"},
+                {
+                    loader:"less-loader",
+                    options:{
+                        plugins: [ new LessFunc() ]
+                    }
+                },
+                {loader:"postcss-loader"},
+            ]
+        },{
+            test:/\.scss$/,
+            use:[
+                {loader:"style-loader"},
+                {loader:"css-loader"},
+                {loader:"sass-loader",},
                 {loader:"postcss-loader"},
             ]
         },{

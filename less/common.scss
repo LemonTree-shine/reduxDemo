@@ -1,0 +1,10 @@
+$color:orange;
+
+@mixin _color($color:red) {
+    background: $color;
+}
+
+.test{
+    @include _color(blue);
+    color: $color;
+  }
