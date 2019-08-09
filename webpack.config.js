@@ -34,9 +34,6 @@ module.exports = {
                 {loader:"css-loader"},
                 {
                     loader:"less-loader",
-                    options:{
-                        plugins: [ new LessFunc() ]
-                    }
                 },
                 {loader:"postcss-loader"},
             ]
@@ -49,18 +46,35 @@ module.exports = {
                 {loader:"postcss-loader"},
             ]
         },{
-            test:/(\.js|\.jsx|\.ts|\.tsx)$/,
+            test:/(\.js|\.jsx)$/,
             use: {
 				loader:'babel-loader',
 				options: {
 					presets: ['@babel/preset-env','@babel/preset-react'],
 					plugins: [
-						['import', {"libraryName": "antd-mobile", "style": "css"}],
+                        [
+                            'import', 
+                            {"libraryName": "antd", "libraryDirectory": "es", "style": "css"},
+                           
+                        ],
 					]
 				}
 			},
             exclude:/node_modules/
-        }]
+        },
+        { 
+            test: /\.tsx?$/, 
+            loader: "awesome-typescript-loader", 
+            options: {
+                plugins: [
+                    ['import', [{ libraryName: 'antd', style: true }]],
+                ]
+            }
+        },{ 
+            test: /\.js$/, 
+            enforce: "pre",
+            loader: "source-map-loader"
+        },]
     },
     resolve:{
         //别名处理
