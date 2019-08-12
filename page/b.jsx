@@ -8,7 +8,7 @@ import C from "./c";
 export default class B extends Component{
     render(){
         return <div className="test">
-            hello world
+            hello world1111122222
             <C/>
         </div>
     }

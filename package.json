@@ -14,9 +14,12 @@
     "babel-plugin-import": "^1.12.0",
     "css-loader": "^2.1.1",
     "css-modules-require-hook": "^4.2.3",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^4.2.0",
     "html-webpack-plugin": "^3.2.0",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
+    "mini-css-extract-plugin": "^0.8.0",
     "postcss-less": "^3.1.4",
     "postcss-loader": "^3.0.0",
     "postcss-pxtorem": "^4.0.1",
@@ -26,13 +29,14 @@
     "style-loader": "^0.23.1",
     "ts-loader": "^6.0.4",
     "typescript": "^3.5.3",
+    "url-loader": "^2.1.0",
     "webpack": "^4.32.2",
     "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.5.1"
   },
   "scripts": {
-    "dev": "webpack --mode development --watch",
-    "build": "webpack --mode production",
+    "dev": "cross-env NODE_ENV=development webpack --watch",
+    "build": "cross-env NODE_ENV=production webpack",
     "server": "cross-env NODE_ENV=test nodemon --exec babel-node server.js"
   },
   "dependencies": {
@@ -40,6 +44,7 @@
     "@types/react-dom": "^16.8.5",
     "antd": "^3.21.2",
     "antd-mobile": "^2.2.13",
+    "clean-webpack-plugin": "^3.0.0",
     "customize-cra": "^0.4.1",
     "ejs": "^2.6.2",
     "express": "^4.17.1",

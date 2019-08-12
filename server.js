@@ -1,5 +1,6 @@
 import csshook from 'css-modules-require-hook/preset';
-
+var webpack = require("webpack");
+var webpackConfig = require("./webpack.config");
 var express = require("express");
 var path = require("path");
 var ejs = require("ejs");
@@ -25,11 +26,19 @@ app.use(express.static(path.join(__dirname,'dist')));
 
 app.get('*', function (request, response){
     response.sendFile(path.resolve(__dirname, 'dist', 'index.html'))
-})
+});
+
+webpackConfig.mode = "development";
+let compiler = webpack(webpackConfig);
 
 
 app.listen("9999",function(){
-    console.log("run at 9999")
+    
+    compiler.watch({
+        mode:"development"
+    },()=>{
+        console.log("build success!");
+    })
 });
 
 
