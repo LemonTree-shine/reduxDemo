@@ -33,7 +33,7 @@ let compiler = webpack(webpackConfig);
 
 
 app.listen("9999",function(){
-    
+    return
     compiler.watch({
         mode:"development"
     },()=>{

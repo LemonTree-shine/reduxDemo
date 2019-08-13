@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {
-    BrowserRouter as Router,
-    Route,
-    Link
-} from 'react-router-dom';
+import { browserHistory } from 'react-router';
 
 @connect((state) => {
     return state
@@ -12,14 +8,14 @@ import {
 export default class A extends Component {
     render() {
         return <div>
-            <Link to={"/b"}>{this.props.reducer.name}</Link>
+            <div onClick={this.toHomePage}>{this.props.reducer.name}</div>
         </div>
     }
     constructor(props) {
         super(props);
-        console.log(props);
     }
     componentDidMount() {
+        console.log(browserHistory);
         setTimeout(() => {
             this.props.dispatch({
                 type: "ADD",
@@ -29,6 +25,9 @@ export default class A extends Component {
                 }
             });
         }, 2000)
+    }
+    toHomePage = ()=>{
+        browserHistory.push("/root/home");
     }
 }
 

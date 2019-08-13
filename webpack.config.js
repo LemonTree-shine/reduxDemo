@@ -33,7 +33,7 @@ module.exports = {
         filename:"bundle.[hash].js",  //打包输出文件
         publicPath:PublicPath,
         path:path.resolve(__dirname,"dist"),  //必须是一个绝对路径
-        chunkFilename:'[name].chunk.js'
+        chunkFilename:'[name].[chunkhash:5].chunk.js'
     },
     //loader配置
     module:{
