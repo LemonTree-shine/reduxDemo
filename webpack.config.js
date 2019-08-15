@@ -4,6 +4,7 @@ var HtmlWebpackPlugin = require("html-webpack-plugin");
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const LessFunc = require('less-plugin-functions');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 //默认是开发环境
 let isDev = true;
@@ -17,7 +18,7 @@ let PublicPath = "/";
 if(isDev){
     PublicPath = "/";
 }else{
-    PublicPath = "发布到线上地址";
+    PublicPath = "/";
 }
 
 module.exports = {
@@ -28,13 +29,19 @@ module.exports = {
 
     },
     mode:isDev?"development":"production", 
-    entry:"./src/index.js",   //入口文件
+    entry:{
+        bundle:"./src/index.js",
+    },   //入口文件
     output:{
-        filename:"bundle.[hash].js",  //打包输出文件
+        filename:"[name].[hash].js",  //打包输出文件
         publicPath:PublicPath,
         path:path.resolve(__dirname,"dist"),  //必须是一个绝对路径
         chunkFilename:'[name].[chunkhash:5].chunk.js'
     },
+    // externals: {
+    //     'react': 'React',
+    //     'react-dom': 'ReactDOM',
+    // },
     //loader配置
     module:{
         rules:[{
@@ -148,5 +155,29 @@ module.exports = {
             chunkFilename: 'css/[id].css',
         })
     ],
+    optimization: {
+        //打包 第三方库
+        //打包 公共文件
+        // minimizer:[
+        //     new UglifyJsPlugin({
+        //         cache: true,//缓冲
+        //         parallel: true, //并发打包,一次打包多个
+        //         sourceMap:true,//源码调试
+        //     })
+        // ],
+        splitChunks: {
+            cacheGroups: {
+                common:{//node_modules内的依赖库
+                    chunks:"all",
+                    name:"common",
+                    minChunks: 2, //被不同entry引用次数(import),1次的话没必要提取
+                    maxInitialRequests: 5,
+                    minSize: 0,
+                    priority:100,
+                    // enforce: true?
+                },
+            }
+        }
+    }
 }
 

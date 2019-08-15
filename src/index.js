@@ -57,6 +57,7 @@ ReactDom.render(
             <Router history={browserHistory} routes={routes}></Router>
         </PersistGate>
     </Provider>,
+    //<Router history={browserHistory} routes={routes}></Router>,
     document.getElementById("contain"),
     () => {
         //回调
