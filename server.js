@@ -33,12 +33,12 @@ let compiler = webpack(webpackConfig);
 
 
 app.listen("9999",function(){
-    return
-    compiler.watch({
-        mode:"development"
-    },()=>{
-        console.log("build success!");
-    })
+    console.log("server run at 9999");
+    compiler.watch({},function(err, stats){
+        console.log(stats.toString({
+            colors:true
+        }));
+    });
 });
 
 

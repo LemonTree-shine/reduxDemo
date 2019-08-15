@@ -8,7 +8,7 @@ import { browserHistory } from 'react-router';
 export default class A extends Component {
     render() {
         return <div>
-            <div onClick={this.toHomePage}>{this.props.reducer.name}</div>
+            <div onClick={this.toHomePage}>{this.props.reducer.name}111</div>
         </div>
     }
     constructor(props) {
@@ -28,6 +28,9 @@ export default class A extends Component {
     }
     toHomePage = ()=>{
         browserHistory.push("/root/home");
+    }
+    componentWillUnmount(){
+        console.log("组件销毁了");
     }
 }
 
