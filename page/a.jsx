@@ -15,7 +15,6 @@ export default class A extends Component {
         super(props);
     }
     componentDidMount() {
-        console.log(browserHistory);
         setTimeout(() => {
             this.props.dispatch({
                 type: "ADD",

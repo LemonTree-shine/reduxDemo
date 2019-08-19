@@ -15,13 +15,20 @@ if(process.env.NODE_ENV){
 }
 
 let PublicPath = "/";
+
+let SourceMap = {}
+
 if(isDev){
     PublicPath = "/";
+    SourceMap = {
+        // devtool: 'source-map'
+    }
 }else{
     PublicPath = "/";
 }
 
 module.exports = {
+    ...SourceMap,
     devServer:{ //开发服务器配置
         port:3000,
         progress:true,
