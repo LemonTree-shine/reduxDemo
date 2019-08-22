@@ -24,7 +24,7 @@ import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import {reducer,reducer2} from "../redux/reduce";
 // import A from "../page/a";
 // import B from "../page/b";
-import "../less/common.scss";
+import "../scss/common.scss";
 
 
 import {default as routes} from './router';

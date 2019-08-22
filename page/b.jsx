@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import C from "./c";
-import A from "./a";
+import A from "./A/a";
 
 
 @connect((state) => {

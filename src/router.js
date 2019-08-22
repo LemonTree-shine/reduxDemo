@@ -3,15 +3,15 @@ export default {
     path:"/root",
     childRoutes: [
         {
-            path: `/root/home`,//首页
+            path: `/root/a`,//首页
             getComponent: (nextState, cb) => {
                 require.ensure([], (require) => {
-                    cb(null, require("../page/a").default)
+                    cb(null, require("../page/A/a").default)
                 }, "home")
             }
         },
         {
-            path: `/root/home2`,//首页
+            path: `/root/b`,//首页
             getComponent: (nextState, cb) => {
                 require.ensure([], (require) => {
                     cb(null, require("../page/b").default)

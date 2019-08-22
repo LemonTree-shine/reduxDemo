@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { browserHistory } from 'react-router';
+import axios from "axios";
+import "./a.scss";
 
 @connect((state) => {
     return state
@@ -15,6 +17,18 @@ export default class A extends Component {
         super(props);
     }
     componentDidMount() {
+
+        console.log(axios);
+        axios({
+            method: 'post',
+            url: '/api/readArticle',
+            headers:{
+                "Content-Type":"text/plain; charset=utf-8",
+                "withCredentials":true
+            },
+            data:{id:"52"}
+        });
+
         setTimeout(() => {
             this.props.dispatch({
                 type: "ADD",

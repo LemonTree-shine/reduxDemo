@@ -145,7 +145,7 @@ module.exports = {
     },
     plugins:[
         new HtmlWebpackPlugin({
-            template:"./src/index.hbs",
+            template:"./src/template/index.hbs",
             filename:"index.html",
             //hash:true,
             // minify:{    //模板优化控制
