@@ -36,7 +36,6 @@ let compiler = webpack(webpackConfig);
 app.listen(serverInfo.environment.port,function(){
     console.log(`server run at ${serverInfo.environment.port}`);
     console.log(serverInfo);
-    return;
     compiler.watch({},function(err, stats){
         console.log(stats.toString({
             colors:true

@@ -11,12 +11,29 @@ export default class A extends Component {
     render() {
         return <div>
             <div onClick={this.toHomePage}>{this.props.reducer.name}111</div>
+            <div>{this.state.name}</div>
+            <div>{this.state.aaa}</div>
+            <div>{this.state.age}</div>
         </div>
     }
     constructor(props) {
         super(props);
+        this.state = {}
     }
     componentDidMount() {
+        this.setState({
+            name:"chenze"
+        });
+        this.setState({
+            aaa:"1231231"
+        });
+        this.setState({
+            age:10
+        },()=>{
+            console.log(this.state)
+        });
+        console.log(this.state);
+        return;
 
         console.log(axios);
         axios({
@@ -40,7 +57,10 @@ export default class A extends Component {
         }, 2000)
     }
     toHomePage = ()=>{
-        browserHistory.push("/root/home");
+        this.setState({
+            name:"asdasdasdad"
+        })
+        //browserHistory.push("/root/home");
     }
     componentWillUnmount(){
         console.log("组件销毁了");
