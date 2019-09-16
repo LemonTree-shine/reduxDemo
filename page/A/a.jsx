@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { browserHistory } from 'react-router';
 import axios from "axios";
 import "./a.scss";
+import info from "../util";
 
 @connect((state) => {
     return state
@@ -21,19 +22,26 @@ export default class A extends Component {
         this.state = {}
     }
     componentDidMount() {
+        debugger
         this.setState({
             name:"chenze"
+        },()=>{
+            console.log(this.state)
         });
+        debugger
         this.setState({
             aaa:"1231231"
+        },()=>{
+            console.log(this.state)
         });
         this.setState({
             age:10
         },()=>{
             console.log(this.state)
         });
-        console.log(this.state);
-        return;
+
+        // console.log(this.state);
+        // return;
 
         console.log(axios);
         axios({
@@ -46,15 +54,15 @@ export default class A extends Component {
             data:{id:"52"}
         });
 
-        setTimeout(() => {
-            this.props.dispatch({
-                type: "ADD",
-                data: {
-                    name: "我换了一个名字",
-                    age: "27"
-                }
-            });
-        }, 2000)
+        // setTimeout(() => {
+        //     this.props.dispatch({
+        //         type: "ADD",
+        //         data: {
+        //             name: "我换了一个名字",
+        //             age: "27"
+        //         }
+        //     });
+        // }, 2000)
     }
     toHomePage = ()=>{
         this.setState({
@@ -64,6 +72,9 @@ export default class A extends Component {
     }
     componentWillUnmount(){
         console.log("组件销毁了");
+    }
+    componentDidUpdate(){
+        console.log(123)
     }
 }
 

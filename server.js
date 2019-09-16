@@ -2,7 +2,6 @@ var webpack = require("webpack");
 var webpackConfig = require("./webpack.config");
 var express = require("express");
 var path = require("path");
-var ejs = require("ejs");
 var fs = require("fs");
 var hbs = require('hbs');
 
@@ -36,11 +35,11 @@ let compiler = webpack(webpackConfig);
 app.listen(serverInfo.environment.port,function(){
     console.log(`server run at ${serverInfo.environment.port}`);
     console.log(serverInfo);
-    compiler.watch({},function(err, stats){
-        console.log(stats.toString({
-            colors:true
-        }));
-    });
+    // compiler.watch({},function(err, stats){
+    //     console.log(stats.toString({
+    //         colors:true
+    //     }));
+    // });
 });
 
 
