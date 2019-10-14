@@ -4,6 +4,12 @@ var express = require("express");
 var path = require("path");
 var fs = require("fs");
 var hbs = require('hbs');
+var http = require("http");
+var https = require("https");
+
+var privateKey  = fs.readFileSync('./sslFile/private.pem', 'utf8');
+var certificate = fs.readFileSync('./sslFile/file.crt', 'utf8');
+var credentials = {key: privateKey, cert: certificate};
 
 var {configProxy} = require("./proxyConfig");
 
@@ -27,12 +33,16 @@ app.get('*', function (req, res){
     res.render("index");
 });
 
+var HTTP = http.createServer(app);
+var HTTPS = https.createServer(credentials,app);
+
 //默认配置webpack开发环境
 webpackConfig.mode = "development";
 let compiler = webpack(webpackConfig);
 
+
 //监听事件
-app.listen(serverInfo.environment.port,function(){
+HTTP.listen(serverInfo.environment.port,function(){
     console.log(`server run at ${serverInfo.environment.port}`);
     console.log(serverInfo);
     // compiler.watch({},function(err, stats){
@@ -40,6 +50,11 @@ app.listen(serverInfo.environment.port,function(){
     //         colors:true
     //     }));
     // });
+});
+
+//监听事件
+HTTPS.listen("443",function(){
+    console.log(`https server run at 443`);
 });
 
 

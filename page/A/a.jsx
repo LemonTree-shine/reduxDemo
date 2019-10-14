@@ -1,20 +1,21 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { browserHistory } from 'react-router';
+// import { connect } from "react-redux";
+// import { browserHistory } from 'react-router';
 import axios from "axios";
 import "./a.scss";
 import info from "../util";
 
-@connect((state) => {
-    return state
-})
+// @connect((state) => {
+//     return state
+// })
 export default class A extends Component {
     render() {
         return <div>
-            <div onClick={this.toHomePage}>{this.props.reducer.name}111</div>
+            
             <div>{this.state.name}</div>
             <div>{this.state.aaa}</div>
             <div>{this.state.age}</div>
+            <button onClick={this.toHomePage}>aaaaaa</button>
         </div>
     }
     constructor(props) {
@@ -22,13 +23,12 @@ export default class A extends Component {
         this.state = {}
     }
     componentDidMount() {
-        debugger
+        
         this.setState({
             name:"chenze"
         },()=>{
             console.log(this.state)
         });
-        debugger
         this.setState({
             aaa:"1231231"
         },()=>{
@@ -39,20 +39,19 @@ export default class A extends Component {
         },()=>{
             console.log(this.state)
         });
-
         // console.log(this.state);
         // return;
 
-        console.log(axios);
-        axios({
-            method: 'post',
-            url: '/api/readArticle',
-            headers:{
-                "Content-Type":"text/plain; charset=utf-8",
-                "withCredentials":true
-            },
-            data:{id:"52"}
-        });
+        //console.log(axios);
+        // axios({
+        //     method: 'post',
+        //     url: '/api/readArticle',
+        //     headers:{
+        //         "Content-Type":"text/plain; charset=utf-8",
+        //         "withCredentials":true
+        //     },
+        //     data:{id:"52"}
+        // });
 
         // setTimeout(() => {
         //     this.props.dispatch({
@@ -65,8 +64,11 @@ export default class A extends Component {
         // }, 2000)
     }
     toHomePage = ()=>{
+        debugger
         this.setState({
             name:"asdasdasdad"
+        },()=>{
+            console.log("更新了更新了")
         })
         //browserHistory.push("/root/home");
     }

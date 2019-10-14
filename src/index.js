@@ -18,12 +18,7 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { PersistGate } from 'redux-persist/integration/react';
 
-import { TransitionGroup, CSSTransition } from "react-transition-group";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
-
 import {reducer,reducer2} from "../redux/reduce";
-// import A from "../page/a";
-// import B from "../page/b";
 import "../scss/common.scss";
 
 
@@ -57,7 +52,6 @@ ReactDom.render(
             <Router history={browserHistory} routes={routes}></Router>
         </PersistGate>
     </Provider>,
-    //<Router history={browserHistory} routes={routes}></Router>,
     document.getElementById("contain"),
     () => {
         //回调
