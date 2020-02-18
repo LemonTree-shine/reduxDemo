@@ -91,7 +91,7 @@ module.exports = {
                 {loader:"css-loader"},
                 {loader:"sass-loader",},
                 {loader:"postcss-loader"},
-            ]
+            ],
         },{
             test:/(\.js|\.jsx)$/,
             use: {
@@ -108,15 +108,6 @@ module.exports = {
 				}
 			},
             exclude:/node_modules/
-        },
-        { 
-            test: /\.tsx?$/, 
-            loader: "awesome-typescript-loader", 
-            options: {
-                plugins: [
-                    ['import', [{ libraryName: 'antd', style: true }]],
-                ]
-            }
         },{ 
             test: /\.js$/, 
             enforce: "pre",

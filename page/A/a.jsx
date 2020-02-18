@@ -4,6 +4,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./a.scss";
 import info from "../util";
+import Test,{Patient} from "../../../../workspace/test/lib/index";
+//import Test,{Patient} from "abcdefggg"
 
 // @connect((state) => {
 //     return state
@@ -11,7 +13,21 @@ import info from "../util";
 export default class A extends Component {
     render() {
         return <div>
-            
+            <Patient
+                relation={{
+                    relationText:'本人',
+                    relation: '0',
+                    show:true
+                }}
+                relationData = {
+                    [{relationText:'本人',relation: '0'},
+                    {relationText:'父母',relation: '3'},
+                    {relationText:'夫妻',relation: '1'},
+                    {relationText:'子女',relation: '2'},
+                    {relationText:'子女（未领取身份证）',relation: '2'},
+                    {relationText:'其他',relation: '5'}]
+                }
+            />
             <div>{this.state.name}</div>
             <div>{this.state.aaa}</div>
             <div>{this.state.age}</div>
@@ -23,7 +39,8 @@ export default class A extends Component {
         this.state = {}
     }
     componentDidMount() {
-        
+        console.log(Patient);
+        return
         this.setState({
             name:"chenze"
         },()=>{

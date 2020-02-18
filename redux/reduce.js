@@ -2,7 +2,7 @@ var defaultData = {
 
 }
 
-export function reducer(state = {}, action){
+export function reducer(state = {name:"11"}, action){
     switch (action.type) {
         case 'ADD':
             return {...state,...action.data};

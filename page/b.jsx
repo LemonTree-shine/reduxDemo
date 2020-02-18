@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import C from "./c";
-import A from "./A/a";
+import "./b.scss";
 
 
 @connect((state) => {
@@ -10,12 +9,1017 @@ import A from "./A/a";
 export default class B extends Component{
     render(){
         return <div className="test">
-            hello world1111122222
-            <A/>
+            {/* <Image src="http://img1.imgtn.bdimg.com/it/u=3770064398,4110132465&fm=26&gp=0.jpg"/> */}
+            <VerTurList/>
         </div>
     }
     constructor(props){
         super(props);
         console.log(props)
+    }
+}
+
+
+class Image extends Component{
+    render(){
+        return <img 
+            src={this.state.src}
+            data-src ={this.state.src}
+            ref = {(el)=>{
+                this.Img = el
+            }}
+        />
+    }
+    constructor(props){
+        super(props);
+        this.loading = false;
+        this.state = {
+            src:"",
+            
+        }
+    }
+
+    componentDidMount(){
+        var self = this;
+
+        //初始化
+        if(window.scrollY+document.documentElement.clientHeight>self.Img.offsetTop){
+            self.setState({
+                src:self.props.src
+            }); 
+        }
+        window.addEventListener("scroll",function(){
+            if(self.state.src){
+                return;
+            }
+            if(window.scrollY+document.documentElement.clientHeight>self.Img.offsetTop){
+                self.setState({
+                    src:self.props.src
+                }); 
+            }
+        })
+    }
+}
+
+let LIST = [{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+},{
+    name:"陈泽",
+    age:"25",
+    adredd:"杭州"
+}]
+
+class VerTurList extends Component{
+    render(){
+        return <div className="box" ref={(el)=>{this.dom=el}} style={{height:"10rem",overflow:"scroll"}}>
+            <ul ref={(el)=>{this.ul=el}}>
+                {LIST.slice(1,10).map((item,index)=>{
+                    return <li className="aaaaa" key={index}>
+                        <div>姓名:{item.name}{index}</div>
+                    </li>
+                })}
+            </ul>
+        </div>
+    }
+    componentDidMount(){
+        console.log(this.dom.offsetHeight);
     }
 }

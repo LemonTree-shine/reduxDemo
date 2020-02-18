@@ -24,14 +24,13 @@ export default {
                     cb(null, require("../page/hook/HookA").default)
                 }, "home2")
             }
-        },
-        {
-            path: `/*`,//404页面，切记要放在路由的最后
+        },{
+            path: `/root/c`,//首页
             getComponent: (nextState, cb) => {
                 require.ensure([], (require) => {
                     cb(null, require("../page/c").default)
-                }, "404")
+                }, "c")
             }
-        },
+        }
     ]
 };

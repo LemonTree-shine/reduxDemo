@@ -7,6 +7,7 @@ var hbs = require('hbs');
 var http = require("http");
 var https = require("https");
 
+//获取https证书
 var privateKey  = fs.readFileSync('./sslFile/private.pem', 'utf8');
 var certificate = fs.readFileSync('./sslFile/file.crt', 'utf8');
 var credentials = {key: privateKey, cert: certificate};
