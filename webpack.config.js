@@ -89,8 +89,9 @@ module.exports = {
                         }
                     },
                 {loader:"css-loader"},
-                {loader:"sass-loader",},
                 {loader:"postcss-loader"},
+                {loader:"sass-loader",},
+                
             ],
         },{
             test:/(\.js|\.jsx)$/,

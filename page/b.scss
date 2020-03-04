@@ -1,6 +1,7 @@
-.aaaaa{
-    height: 200px;
-}
-.box{
-    border: 1px solid red;
+@import "../scss/common.scss";
+
+.test{
+    @include setThemes();
+    //@include setThemes("background");
+    font-size: 30px;
 }

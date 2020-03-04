@@ -4,10 +4,13 @@ import {Button} from "reactcomponentaaa";
 export default class Index extends Component{
     render(){
     return <div onClick={()=>{
-        this.setState({
-            name:"aaaabbbb"
-        });
-    }}>{this.state.name}</div>
+            this.setState({
+                name:"aaaabbbb"
+            });
+        }}>
+            {this.state.name}
+            <Button/>
+        </div>
     }
     constructor(){
         super();
@@ -30,12 +33,10 @@ export default class Index extends Component{
         },()=>{
             console.log(2);
         });
-        debugger
         
     }
 
     componentDidUpdate(){
-        debugger
         console.log("我更新了")
     }
 }

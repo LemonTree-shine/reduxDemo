@@ -3,3 +3,35 @@
     padding: 0;
     margin: 0;
 }
+
+
+$color: (
+    "theme1": (
+        "color": green,
+        "background": red,
+    ),
+    "theme2": (
+        "color": orange,
+        "background": blue,
+    )
+);
+
+@mixin setThemes($keyStyle:"color",$themes:$color) {
+    @each $theme,$map in $themes {
+        .body-theme-#{$theme} & {
+            // @each $style,$value in $map {
+            //     //判断是否是
+            //     @if $keyStyle == $style { #{$style}:$value }
+            // }
+            #{$keyStyle}:map-get($map,$keyStyle);
+            @content;
+        }
+    }
+}
+
+body{
+    @include setThemes();
+    @include setThemes("background");
+}
+
+
