@@ -55,16 +55,18 @@
     "less-plugin-functions": "^1.0.0",
     "node-sass": "^4.13.1",
     "nodemon": "^1.19.1",
-    "react": "^15.6.2",
+    "react": "^16.13.1",
     "react-addons-css-transition-group": "^15.6.2",
-    "react-dom": "^15.6.2",
+    "react-dom": "^16.13.1",
     "react-router": "^3.2.3",
     "react-transition-group": "^4.2.2",
     "redux-persist": "^5.10.0",
     "sass": "^1.26.2",
     "sass-loader": "^8.0.2",
+    "timi-ui": "^1.0.1",
     "ts-loader": "^6.0.4",
-    "uglifyjs-webpack-plugin": "^2.2.0"
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack-cli": "^3.3.11"
   },
   "target": "http://www.xiaogangji.com"
 }

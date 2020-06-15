@@ -3,17 +3,26 @@
   margin: 0;
 }
 
-.body-theme-theme1 body {
+.testPage {
+  font-size: 30px;
+}
+.body-theme-theme1 .testPage {
   color: green;
 }
-.body-theme-theme2 body {
+.body-theme-theme2 .testPage {
   color: orange;
 }
-.body-theme-theme1 body {
+.body-theme-theme3 .testPage {
+  color: pink;
+}
+.body-theme-theme1 .testPage {
   background: red;
 }
-.body-theme-theme2 body {
+.body-theme-theme2 .testPage {
   background: blue;
+}
+.body-theme-theme3 .testPage {
+  background: #000000;
 }
 
 /*# sourceMappingURL=common.css.map */

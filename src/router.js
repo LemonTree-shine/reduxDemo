@@ -3,33 +3,27 @@ export default {
     path:"/root",
     childRoutes: [
         {
-            path: `/root/a`,//首页
-            getComponent: (nextState, cb) => {
-                require.ensure([], (require) => {
-                    cb(null, require("../page/A/a").default)
-                }, "home")
-            }
-        },
-        {
             path: `/root/b`,//首页
             getComponent: (nextState, cb) => {
                 require.ensure([], (require) => {
                     cb(null, require("../page/b").default)
                 }, "home2")
             }
-        },{
-            path: `/root/hookdemo`,//首页
+        },
+        {
+            path: `/root/miniRedux`,//首页
             getComponent: (nextState, cb) => {
                 require.ensure([], (require) => {
-                    cb(null, require("../page/hook/HookA").default)
+                    cb(null, require("../page/miniRedux/index").default)
                 }, "home2")
             }
-        },{
-            path: `/root/c`,//首页
+        },
+        {
+            path: `/root/webComponent`,//首页
             getComponent: (nextState, cb) => {
                 require.ensure([], (require) => {
-                    cb(null, require("../page/c").default)
-                }, "c")
+                    cb(null, require("../page/webComponent/index").default)
+                }, "home2")
             }
         }
     ]

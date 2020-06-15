@@ -1,7 +1,4 @@
-@import "../scss/common.scss";
-
-.test{
-    @include setThemes();
-    //@include setThemes("background");
-    font-size: 30px;
+#scroll-dom{
+    height: 1000px;
+    overflow: scroll;
 }
