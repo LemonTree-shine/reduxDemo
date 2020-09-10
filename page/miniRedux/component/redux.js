@@ -4,7 +4,6 @@ import ReactDom from "react-dom";
 //初始化全局上下文
 var ContextTheme = React.createContext();
 
-
 export class Redux extends Component{
     render(){
         return <ContextTheme.Provider value={this.state.value}>
@@ -21,7 +20,7 @@ export class Redux extends Component{
         }
     }
 
-    mergeState = (active,Obj,callback)=>{
+    mergeState = (Obj,callback)=>{
         var {value} =  this.state;
         this.setState({
             value:{
@@ -34,18 +33,55 @@ export class Redux extends Component{
     }
 }
 
-export function connect(){
+export function connect(dataKeyList){
     return function(Com){
-        class AAA extends Component{
+        class Wrap extends Component{
             render(){
                 return <ContextTheme.Consumer>
                     {context=>{
-                        return <Com reduxData={context}/>
+                        let propsData = context;
+                        if(dataKeyList){
+                            propsData = {};
+                            [...dataKeyList,'disPatch'].forEach((key)=>{
+                                for(let objKey in context){
+                                    if(key===objKey){
+                                        propsData[key]=context[key]
+                                    }
+                                }
+                            });
+                        }
+                        return <Com reduxData={propsData}/>
                     }}
                 </ContextTheme.Consumer>
             }
         }
-        return AAA;
+        return Wrap;
     }
 }
+
+// export function connect(Com){
+//     class AAA extends Component{
+//         render(){
+//             return <ContextTheme.Consumer>
+//                 {context=>{
+//                     return <Com reduxData={context}/>
+//                 }}
+//             </ContextTheme.Consumer>
+//         }
+//     }
+//     return AAA;
+// }
+
+export function mergeData(){
+    let mergeData = {};
+    for(let i = 0;i<arguments.length;i++){
+        //console.log(arguments[i]);
+        mergeData = {
+            ...mergeData,
+            ...arguments[i]
+        }
+    }
+    return mergeData;
+}
+
 

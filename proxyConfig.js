@@ -24,6 +24,7 @@ function configProxy(app){
         })
     });
 
+
     Proxy.on('proxyReq', function (proxyReq, req, res, options) {
         //同步cookie
         proxyReq.setHeader("cookie", req.headers.cookie || '');

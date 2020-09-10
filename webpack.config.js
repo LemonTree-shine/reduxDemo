@@ -56,12 +56,7 @@ module.exports = {
             use:[
                 {
                     loader: MiniCssExtractPlugin.loader,
-                    options:{
-                        publicPath: './',
-                        hmr:true
-                    }
                 },
-                {loader:"style-loader"},
                 {loader:"css-loader"},
                 {loader:"postcss-loader"},
                 
@@ -69,7 +64,9 @@ module.exports = {
         },{
             test:/\.less$/,
             use:[
-                {loader:"style-loader"},
+                {
+                    loader: MiniCssExtractPlugin.loader,
+                },
                 {loader:"css-loader"},
                 {
                     loader:"less-loader",
@@ -79,15 +76,9 @@ module.exports = {
         },{
             test:/\.scss$/,
             use:[
-                isDev?
-                    {loader:"style-loader"}
-                    :
-                    {
-                        loader: MiniCssExtractPlugin.loader,
-                        options:{
-                            publicPath: './',
-                        }
-                    },
+                {
+                    loader: MiniCssExtractPlugin.loader,
+                },
                 {loader:"css-loader"},
                 {loader:"postcss-loader"},
                 {loader:"sass-loader",},
@@ -151,7 +142,6 @@ module.exports = {
         }),
         new MiniCssExtractPlugin({
             filename: 'css/[name].css',
-            chunkFilename: 'css/[id].css',
         })
     ],
     optimization: {
