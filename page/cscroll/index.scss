@@ -1,0 +1,14 @@
+.scroll_test_page{
+    font-size: 20px;
+    background:#ccc;
+    .list_item{
+        padding: 20px;
+        .name{
+            font-size: 30px;
+            padding-bottom: 10px;
+        }
+        .content{
+            font-size: 55px;
+        }
+    }
+}
