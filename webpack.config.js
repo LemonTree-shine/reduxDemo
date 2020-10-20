@@ -5,6 +5,20 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const LessFunc = require('less-plugin-functions');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+function HelloWorldPlugin(options) {
+    // 使用 options 设置插件实例……
+  }
+  
+  HelloWorldPlugin.prototype.apply = function(compiler) {
+    compiler.plugin('emit', function(compilation,callback) {
+        console.log(compiler.options);
+        // compilation.chunks.forEach((chunk)=>{
+        //     console.log(chunk.files)
+        // })
+        //console.log(compilation.chunks);
+      callback();
+    });
+  };
 
 //默认是开发环境
 let isDev = true;
@@ -85,7 +99,7 @@ module.exports = {
                 
             ],
         },{
-            test:/(\.js|\.jsx)$/,
+            test:/(\.[jt]sx?)$/,
             use: {
 				loader:'babel-loader',
 				options: {
@@ -115,6 +129,11 @@ module.exports = {
                 },
 
             }
+        },{
+            test: /\.(eot|woff|svg|ttf)$/,
+            use:{
+                loader: 'file-loader'
+            }
         }]
     },
     resolve:{
@@ -136,6 +155,7 @@ module.exports = {
             //     collapseWhitespace:true
             // }
         }),
+        // new HelloWorldPlugin({options: true}),
         new CleanWebpackPlugin({
             cleanOnceBeforeBuildPatterns:path.resolve(__dirname,'dist/**/*'),
             cleanAfterEveryBuildPatterns:path.resolve(__dirname,'dist/**/*'),
